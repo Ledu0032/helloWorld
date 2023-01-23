@@ -18,5 +18,14 @@ spec:
       containers:
       - name: {{ .Chart.Name }}
         image: {{ .Values.image.repository }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.service.port }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.service.port }}
         ports:
         - containerPort: {{ .Values.port }}
+        
