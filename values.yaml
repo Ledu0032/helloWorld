@@ -40,9 +40,3 @@ resources:
   region: americas
 
 podSecurityContext: {}
-
-
-
-#    - protocol: TCP
-#     port: {{ .Values.service.port }}
-#    targetPort: {{ .Values.port }}
