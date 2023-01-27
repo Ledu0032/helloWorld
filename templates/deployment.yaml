@@ -1,5 +1,4 @@
 apiVersion: apps/v1
-
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}
@@ -15,6 +14,8 @@ spec:
       labels:
         app: {{ .Values.app }}
     spec:
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
       - name: {{ .Chart.Name }}
         image: {{ .Values.image.repository }}
@@ -28,4 +29,17 @@ spec:
             port: {{ .Values.service.port }}
         ports:
         - containerPort: {{ .Values.port }}
-        
+        resources:
+{{ toYaml .Values.resources | indent 8 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

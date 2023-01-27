@@ -11,9 +11,9 @@ image:
 
 deployment:
   name: deployment
-  
 
 service:
+  protocol: TCP
   name: service
   type: ClusterIP
   port: 80
@@ -28,10 +28,21 @@ ingress:
   hosts:
     host: {}
 
-nodeSelector: {}
+nodeSelector: 
+  # example to me, that say to me if syntax is good for with functions 
+  region: americas
 
-tolerations: []
+tolerations: {}
 
 affinity: {}
 
+resources: 
+  region: americas
 
+podSecurityContext: {}
+
+
+
+#    - protocol: TCP
+#     port: {{ .Values.service.port }}
+#    targetPort: {{ .Values.port }}
