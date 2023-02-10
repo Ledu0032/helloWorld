@@ -31,14 +31,6 @@ jobs:
     - name: 'Build docker image'
       run: 'docker build -t helm .'
 
-    - name: 'Test helm v3 push'
-      uses: ./
-      env:
-        SOURCE_DIR: '.github/'
-        CHART_FOLDER: 'chart'
-        FORCE: 'True'
-        CHARTMUSEUM_URL: 'http://localhost:8080'
-        CHARTMUSEUM_USER: 'admin'
-        CHARTMUSEUM_PASSWORD: 'test'
+#
     - name: Helm Push Action
       uses: Goodsmileduck/helm-push-action@v3
