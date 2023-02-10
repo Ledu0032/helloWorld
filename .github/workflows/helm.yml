@@ -1,0 +1,23 @@
+name: Helm Chart
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Create and install Helm Chart
+      run: |
+        mkdir helm-example
+        cd helm-example
+        helm create helm-example
+        cd helm-example
+        helm install new-chart ./helm-example/new-chart
