@@ -73,5 +73,5 @@ jobs:
         uses: explorium-ai/package-helm-ghcr-action@main
         with:
               gh-token: fadsfads********
-              gh-repo-owner: mycompany
+              gh-repo-owner: Ledu0032
               chart-path: ./charts/mychart
