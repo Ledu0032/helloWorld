@@ -20,4 +20,4 @@ jobs:
         cd helm-example
         helm create helm-example
         cd helm-example
-        helm install new-chart ./helm-example/new-chart
+        helm install new-chart
