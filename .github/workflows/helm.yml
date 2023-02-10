@@ -18,6 +18,6 @@ jobs:
       run: |
         mkdir helm-example
         cd helm-example
-        helm create helm-example
+        helm create helm-example .
         cd helm-example
-        helm install new-chart
+        helm install new-chart .
