@@ -80,6 +80,4 @@ jobs:
 
       - name: Package and Push a Helm Chart to GHCR
         uses: explorium-ai/package-helm-ghcr-action@main
-        with:
-            gh-token: fadsfads********
-            chart-path: ./charts/mychart
+
