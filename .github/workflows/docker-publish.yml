@@ -69,33 +69,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      - uses: azure/setup-helm@v3
-
-      - name: login to ghcr using helm
-        shell: bash    
-        run: |
-          echo ${{ inputs.gh-token }} | helm registry login ${{ env.GCR_IMAGE }} --username ${{ inputs.gh-repo-owner }} --password-stdin
-        env:
-          HELM_EXPERIMENTAL_OCI: "1"
-          GCR_IMAGE: ghcr.io/${{ inputs.gh-repo-owner }}
-
-      - name: Install PyBump
-        run: |
-          python3 -m pip install pybump
-        shell: bash
-      
-      - name: Helm Chart
-        env:
-          GCR_IMAGE: ghcr.io/${{ inputs.gh-repo-owner }}
-          HELM_EXPERIMENTAL_OCI: "1"
-        run : |
-          version=$(pybump get --file ${{ inputs.chart-path }}/Chart.yaml)
-          helm package ${{ inputs.chart-path }} --version $version
-          echo pushing $(basename ${{ inputs.chart-path }})-$version.tgz to oci://$GCR_IMAGE
-          helm push $(basename ${{ inputs.chart-path }})-$version.tgz oci://$GCR_IMAGE
-        shell: bash
-
-
-
-
+      - name: Package and Push a Helm Chart to GHCR
+        uses: explorium-ai/package-helm-ghcr-action@main
+        with:
+              gh-token: fadsfads********
+              gh-repo-owner: mycompany
+              chart-path: ./charts/mychart
