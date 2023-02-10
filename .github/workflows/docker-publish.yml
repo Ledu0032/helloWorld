@@ -78,11 +78,9 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Helm Package
-        uses: Flydiverny/helm-package-action@0.1.0
+      - name: Package Helm GHCR
+        uses: explorium-ai/package-helm-ghcr-action@v1.0.0
 
-      - name: Helm Push
-        uses: bsord/helm-push@v4.1.0
 
 
 
