@@ -70,19 +70,15 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Chart | Push
-        uses: appany/helm-oci-chart-releaser@v0.3.0
+      - name: Push Helm chart to OCI compatible registry (Github)
+        uses: bsord/helm-push@4.2.0
         with:
-          name: my-chart
-          repository: helloWorld
-          tag: 0.1.0
-          path: helloworldv2 # Default charts/{name}
-          registry: ghcr.io
-          registry_username: ${{ secrets.REGISTRY_USERNAME }}
-          registry_password: ${{ secrets.REGISTRY_PASSWORD }}
-
-# helm pull ghcr.io/appany/my-chart:0.1.0
-      #
+          useOCIRegistry: true
+          registry-url:  oci://ghcr.io/${{ github.repository }}
+          username: bsord
+          access-token: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
+          force: true
+          chart-folder: chart
 
 
 
