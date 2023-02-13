@@ -70,7 +70,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       
-      - name: Helm Package
-        uses: Flydiverny/helm-package-action@0.1.0
+
 
 
