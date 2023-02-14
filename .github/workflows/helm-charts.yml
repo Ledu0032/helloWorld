@@ -30,7 +30,15 @@ jobs:
     - name: Build and push Helm Charts
       run: |
         helm package .
-        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/kruac
+        
+    - name: Push Helm chart to OCI compatible registry (Github)
+      uses: bsord/helm-push@4.2.0
+      with:
+        useOCIRegistry: true
+        registry-url:  oci://ghcr.io/${{ github.repository }}
+        username: Ledu0032
+        access-token: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
+        force: true
 
 
 
