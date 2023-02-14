@@ -12,7 +12,19 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+    - name: Login to GitHub Container Registry
+      uses: ./
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      
+    - name: Build Helm Chart
+      run: |
+       helm package .
+       helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
 
