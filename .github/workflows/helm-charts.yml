@@ -26,18 +26,7 @@ jobs:
     - name: Build and push Helm Charts
       run: |
         helm package .
-    
-    - name: Chart | Push
-      uses: appany/helm-oci-chart-releaser@v0.3.0
-      with:
-        name: my-chart
-        repository: appany
-        tag: 0.1.0
-        path: charts/my-chart # Default charts/{name}
-        registry: ghcr.io
-        registry_username: ${{ secrets.REGISTRY_USERNAME }}
-        registry_password: ${{ secrets.REGISTRY_PASSWORD }}
-
+        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworldv2
 
 
 
