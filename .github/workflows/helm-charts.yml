@@ -30,7 +30,7 @@ jobs:
     - name: Build and push Helm Charts
       run: |
         helm package .
-        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld/helloworldv2
+        helm push /home/runner/work/helloWorld/helloWorld/helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld/helloworldv2
 
 
 
