@@ -32,7 +32,7 @@ jobs:
 
     - name: Build Helm Chart
       run: |
-       helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
+       helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld2
 
 
 
