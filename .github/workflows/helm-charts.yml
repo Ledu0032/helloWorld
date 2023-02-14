@@ -26,7 +26,10 @@ jobs:
     - name: Build and push Helm Charts
       run: |
         helm package .
-        docker push oci://ghcr.io/ledu0032/helloworldv2:latest
+    
+    - name: Helm OCI Chart Releaser
+      uses: appany/helm-oci-chart-releaser@v0.4.0
+
 
 
 
