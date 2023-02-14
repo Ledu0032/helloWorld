@@ -34,7 +34,7 @@ jobs:
         helm create charts
         cd charts
         helm package .
-        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
+        helm push charts-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
 
 
 
