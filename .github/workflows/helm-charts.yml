@@ -29,8 +29,12 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build and push Helm Charts
       run: |
+        mkdir proba
+        cd proba
+        helm create charts
+        cd charts
         helm package .
-        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloWorld/helloworld
+        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
 
 
 
