@@ -21,11 +21,19 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+#   - uses: actions/checkout@v3
     - name: Package helm charts
-      run: helm package .
+      run: |
+        mkdir chart-demo
+        cd chart-demo
+        helm create helm-chart
+        cd helm-chart
+        ls
+        helm install helm-chart
+        helm package .
 
     - name: Push helm chart
-      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chart
+      run: helm push helm-chart-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chart
 
 
 
