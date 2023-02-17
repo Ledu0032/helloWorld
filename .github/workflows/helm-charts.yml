@@ -25,6 +25,10 @@ jobs:
     - name: Package helm charts
       run: helm package .
 
+    - uses: actions/labeler@v4
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Helm Push
       uses: bsord/helm-push@v4.1.0
       with:
