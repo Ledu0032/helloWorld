@@ -25,5 +25,6 @@ jobs:
     - name: Package helm charts
       run: helm package .
 
+    - uses: actions/checkout@v3
     - name: Push helm chart
-      run: docker push ghcr.io/ledu0032/helloworld:main
+      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats
