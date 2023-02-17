@@ -29,7 +29,7 @@ jobs:
         helm create helm-chart
         cd helm-chart
         ls
-        helm install helm-chart
+        helm install helm-chart .
         helm package .
 
     - name: Push helm chart
