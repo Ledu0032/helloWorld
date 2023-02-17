@@ -21,7 +21,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - uses: actions/checkout@v3
     - name: Package helm charts
       run: helm package .
 
