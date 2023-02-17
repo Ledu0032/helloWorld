@@ -26,7 +26,9 @@ jobs:
       run: helm package .
 
     - name: Push helm chart
-      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chart:main
+      run: |
+        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chart
+        echo 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 | helm registry login ghcr.io -u Ledu0032 --password-stdin
 
 
 
