@@ -27,7 +27,7 @@ jobs:
       run: helm package .
 
     - name: Push Helm Chart
-      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
+      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chart
 
 
 
