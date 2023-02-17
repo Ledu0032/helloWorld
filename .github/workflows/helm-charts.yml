@@ -25,6 +25,9 @@ jobs:
     - name: Package helm charts
       run: helm package .
 
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
     - uses: actions/checkout@v3
     - name: Push helm chart
       run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats
