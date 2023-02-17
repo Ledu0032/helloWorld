@@ -27,4 +27,4 @@ jobs:
     - name: Push helm chart
       run: |
         echo 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 | helm registry login ghcr.io -u Ledu0032 --password-stdin
-        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats
+        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
