@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Login to GitHub Container Registry
-      uses: docker/login-action@v3
+      uses: docker/login-action@v2
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -26,5 +26,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Push helm chart
       run: |
-        echo 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 | helm registry login ghcr.io -u Ledu0032 --password-stdin
+        echo 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 | helm registry login ghcr.io -u Ledu0032 --password-stdin
         helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats
