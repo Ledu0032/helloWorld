@@ -26,4 +26,4 @@ jobs:
       run: helm package .
 
     - name: Push helm chart
-      run: docker push ghcr.io/ledu0032/helloworld
+      run: docker push -a ghcr.io/ledu0032/helloworld
