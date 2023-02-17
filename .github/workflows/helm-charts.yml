@@ -27,6 +27,8 @@ jobs:
 
     - name: Helm Push
       uses: bsord/helm-push@v4.1.0
+      with:
+        registry-url:  oci://ghcr.io/${{ github.repository }}
 
 
 
