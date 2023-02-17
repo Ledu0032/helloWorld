@@ -28,7 +28,7 @@ jobs:
         cd example
         helm create example
         cd example
-        helm install example
+        helm install example .
         helm package .
 
     - name: Push helm chart
