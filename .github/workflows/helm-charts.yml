@@ -1,15 +1,11 @@
 name: Helm Chars
 
 on:
-  #push:
-   # branches: [ "main" ]
-  #pull_request:
-   # branches: [ "main" ]
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "Who to greet"
-        default: "World"
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 jobs:
 
   build:
