@@ -26,6 +26,8 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Package helm charts
-      run: helm package .
+      run: |
+        helm package .
+        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats 
 
 
