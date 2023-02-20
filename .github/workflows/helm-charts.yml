@@ -23,6 +23,5 @@ jobs:
     - name: Package helm charts
       run: helm package .
 
-    - uses: actions/checkout@v3
     - name: Push helm chart
       run: helm registry login ghcr.io -u Ledu0032 --password-stdin
