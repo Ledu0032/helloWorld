@@ -23,6 +23,6 @@ jobs:
     - name: Package helm charts
       run: helm package .
 
+    - uses: actions/checkout@v3
     - name: Push helm chart
-      run: echo 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 | helm registry login ghcr.io -u Ledu0032 --password-stdin
-#
+      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
