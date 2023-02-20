@@ -28,4 +28,8 @@ jobs:
     - name: Package helm charts
       run: helm package .
 
+    - name: Push helm chart
+      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats
+
+
 
