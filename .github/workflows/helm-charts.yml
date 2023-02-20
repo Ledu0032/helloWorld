@@ -9,9 +9,8 @@ on:
 
 
 jobs:
-
-  build:
-
+  stale:
+   
     runs-on: ubuntu-latest
     permissions:
         packages: write
@@ -29,8 +28,6 @@ jobs:
       run: helm package .
 
     - uses: actions/checkout@v3
+    - uses: actions/stale@v5
     - name: Push helm chart
-
-      run: |
-        helm registry login ghcr.io -u Ledu0032 --password-stdin
-        helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
+      run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
