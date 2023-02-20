@@ -14,7 +14,13 @@ permissions:
 
 
 jobs:
-  build:
+  agents:
+
+    permissions:
+      packages: write
+      actions: write
+      pull-requests: write
+      id-token: write
    
     runs-on: ubuntu-latest
     
