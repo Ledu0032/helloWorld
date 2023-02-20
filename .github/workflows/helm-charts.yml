@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     
     permissions:
-      repository-projects: write
-      pull-requests: write
+      actions: write
+      packages: write
 
     steps:
     - name: Login to GitHub Container Registry
@@ -31,6 +31,5 @@ jobs:
       run: helm package .
 
     - uses: actions/checkout@v3
-    - uses: actions/stale@v5
     - name: Push helm chart
       run: helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helloworld
