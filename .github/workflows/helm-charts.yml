@@ -9,18 +9,10 @@ on:
 permissions:
   packages: write
   actions: write
-  pull-requests: write
-  id-token: write
-
 
 jobs:
-  agents:
 
-    permissions:
-      packages: write
-      actions: write
-      pull-requests: write
-      id-token: write
+  build:
    
     runs-on: ubuntu-latest
     
