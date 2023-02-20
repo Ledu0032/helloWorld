@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     permissions:
-      issues: write
+      repository-projects: write
       pull-requests: write
 
     steps:
