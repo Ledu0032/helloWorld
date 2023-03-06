@@ -30,8 +30,30 @@ jobs:
         helm package .
         helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats
 
-    - name: Testing Helm Chars
+    - name: Python check
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        check-latest: true
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.3.1
+
+    - name: Run chart-testing (list-changed)
+      id: list-changed
       run: |
-        helm template .
-        ct lint .
+        changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
+        if [[ -n "$changed" ]]; then
+          echo "::set-output name=changed::true"
+        fi
+
+    - name: Run chart-testing (lint)
+      run: ct lint --target-branch ${{ github.event.repository.default_branch }}
+
+    - name: Create kind cluster
+      uses: helm/kind-action@v1.4.0
+      if: steps.list-changed.outputs.changed == 'true'
+
+    - name: Run chart-testing (install)
+      run: ct install
 
