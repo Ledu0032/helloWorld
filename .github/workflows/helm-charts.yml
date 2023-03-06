@@ -32,6 +32,6 @@ jobs:
 
     - name: Testing Helm Chars
       run: |
-        helm templates .
+        helm template .
         helm lint .
 
