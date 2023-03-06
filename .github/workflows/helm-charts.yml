@@ -29,3 +29,6 @@ jobs:
       run: |
         helm package .
         helm push helloworldv2-0.1.0.tgz oci://ghcr.io/ledu0032/helm-chats
+
+    - name: Helm Chart Testing Helm 3
+      uses: HexF/chart-testing-action@v3.0.1
