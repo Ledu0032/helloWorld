@@ -1,3 +1,2 @@
-chart-dirs:
-  - zdravosvete
+chart-dirs: ./
 validate-maintainers: false
