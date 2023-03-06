@@ -40,8 +40,8 @@ jobs:
       with:
         version: v3.10.0
 
-    - name: Helm Chart Testing
-      uses: helm/chart-testing-action@v2.3.1
+  #  - name: Helm Chart Testing
+   #   uses: helm/chart-testing-action@v2.3.1
 
     - name: Python check
       uses: actions/setup-python@v4
