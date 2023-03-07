@@ -37,10 +37,10 @@ jobs:
     - name: Lint Charts
       run: |
         cd chart
-        ct lint --all --validate-maintainers=false --chart-dirs ./
+        ct lint --all --validate-maintainers=false --chart-dirs chart
       
     - name: Install Linted charts
       run: |
         cd chart
-        ct install --all --chart-dirs ./         
+        ct install --all --chart-dirs chart      
 
