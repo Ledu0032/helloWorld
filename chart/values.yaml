@@ -6,7 +6,7 @@ replicaCount: 2
 app: nginx
 port: 5000
 image:
-  repository: ledu32/helloworld
+  repository: ledu32/helloworld/chart
   # Overrides the image tag whose default is the chart appVersion.
 
 deployment:
