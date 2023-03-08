@@ -3,9 +3,11 @@ name: Helm Chars
 on:
   push:
     branches: [ "main" ]
-    tags: [ 'vx.x.x' ]
   pull_request:
     branches: [ "main" ]
+  release:
+    types: [published]
+
 
 permissions:
   contents: write
@@ -18,10 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false # <<<--- This line
-
     - uses: actions/checkout@v3
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v2
