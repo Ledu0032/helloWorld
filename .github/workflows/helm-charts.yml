@@ -29,8 +29,8 @@ jobs:
     - name: Package helm charts
       run: |
         cd chart
-        helm package . | pbcopy
-        helm push pbpaste.tgz oci://ghcr.io/ledu0032/helm-chats
+        helm package .
+        helm push helloworldv2-0.2.0.tgz oci://ghcr.io/ledu0032/helm-chats
 
     - name: Set up chart-testing
       uses: helm/chart-testing-action@v2.3.1
