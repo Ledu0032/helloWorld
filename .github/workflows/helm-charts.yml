@@ -1,10 +1,8 @@
 name: Helm Chars
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  release:
+    types: [published, edited]
 
 permissions:
   contents: write
