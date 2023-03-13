@@ -29,5 +29,5 @@ jobs:
         kubectl get nodes
         docker pull ledu32/helloworld:latest
         docker build -t ledu32/helloworld .
-        docker exec -ti chart-testing-control-plane bash
+        docker exec chart-testing-control-plane bash
         crictl images
