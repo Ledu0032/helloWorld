@@ -28,5 +28,5 @@ jobs:
       run: |
         kubectl get nodes
         docker pull ledu32/helloworld:latest
-        kubectl apply -f *ledu32/helloworld
+        kubectl apply -f docker.io/ledu32/helloworld:latest
 
