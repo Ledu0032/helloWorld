@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+#
     steps:
     - uses: actions/checkout@v3
     - name: Login to GitHub Container Registry
@@ -28,5 +28,6 @@ jobs:
       run: |
         kubectl get nodes
         docker pull ledu32/helloworld:latest
-        kubectl apply -f https://hub.docker.com/r/ledu32/helloworld
-
+        docker build -f ledu32/helloworld:latest
+        kind load docker-image ledu32/helloworld:latest
+        kubectl apply -f ledu32/helloworld:latest
