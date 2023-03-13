@@ -30,4 +30,5 @@ jobs:
         docker pull ledu32/helloworld:latest
         kind load docker-image ledu32/helloworld:latest --name chart-testing
         docker build -t ledu32/helloworld:latest .
+        docker exec -it chart-testing-control-plane crictl images
         kubectl apply -f templates/deployment.yaml
