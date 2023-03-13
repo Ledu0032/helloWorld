@@ -21,12 +21,11 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
- #   - name: Kind Cluster
-  #    uses: helm/kind-action@v1.5.0
+    - name: Kind Cluster
+      uses: helm/kind-action@v1.5.0
 
     - name: Install Kind Cluster
       run: |
-        kind create cluster
         kubectl get nodes
         docker pull ledu32/helloworld:latest
         docker build -t ledu32/helloworld .
