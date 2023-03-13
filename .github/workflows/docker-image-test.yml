@@ -29,5 +29,5 @@ jobs:
         kubectl get nodes
         docker pull ledu32/helloworld:latest
         kind load docker-image ledu32/helloworld:latest --name chart-testing
-        docker build -t ledu32/helloworld:latest .
+        docker build -t templates/ledu32/helloworld:latest .
         kubectl apply -f deployment.yaml
