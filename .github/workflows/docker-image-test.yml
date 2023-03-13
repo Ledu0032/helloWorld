@@ -28,6 +28,7 @@ jobs:
       run: |
         kubectl get nodes
         docker pull ledu32/helloworld:latest
+        kind build node-image
         kind load docker-image ledu32/helloworld:latest
         docker build -t ledu32/helloworld:latest .
         kubectl apply -f ledu32/helloworld:latest
