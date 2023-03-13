@@ -22,14 +22,12 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Kind Cluster
-      run: |
-        docker pull ledu32/helloworld:latest
-        kind create cluster --image ledu32/helloworld:latest
+      uses: helm/kind-action@v1.5.0
 
     - name: Install Kind Cluster
       run: |
         kubectl get nodes
         docker pull ledu32/helloworld:latest
-        kind create cluster --image ledu32/helloworld:latest
+        chart-testing load docker-image ledu32/helloworld:latest
         docker build -t ledu32/helloworld:latest .
         kubectl apply -f ledu32/helloworld:latest
