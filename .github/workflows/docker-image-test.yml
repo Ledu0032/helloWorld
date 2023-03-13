@@ -21,8 +21,8 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Kind Cluster
-      uses: helm/kind-action@v1.5.0
+ #   - name: Kind Cluster
+  #    uses: helm/kind-action@v1.5.0
 
     - name: Install Kind Cluster
       run: kind create cluster
