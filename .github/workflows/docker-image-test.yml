@@ -22,7 +22,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Kind Cluster
-      run : kind create cluster --config kind-cluster.yaml --image ledu32/helloworld
+      run : kind create cluster --config cd chart/templates/kind-cluster.yaml --image ledu32/helloworld
 
     - name: Install Kind Cluster
       run: |
