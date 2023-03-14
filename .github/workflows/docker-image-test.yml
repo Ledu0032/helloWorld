@@ -21,14 +21,11 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Kind Cluster
-      uses: helm/kind-action@v1.5.0
-
     - name: Install Kind Cluster
       run: |
         cd chart
         cd templates
-        kind create cluster --config kind-cluster.yaml
+        kind create kind-cluster.yaml
         docker pull ghcr.io/ledu0032/helloworld:main
         kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing2
-        kubectl apply -f kind-cluster.yaml
+        kubectl apply -f kind-deployemnt.yaml
