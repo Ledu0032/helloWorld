@@ -22,7 +22,9 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Kind Cluster
-      run : kind create cluster --config kind-cluster.yaml 
+      run : |
+        cd chart
+        kind create cluster --config /kind-cluster.yaml 
 
     - name: Install Kind Cluster
       run: |

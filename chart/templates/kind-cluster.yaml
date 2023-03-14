@@ -1,7 +1,3 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1
 name: chart-testing
-config: ./
-    description: "The path to the kind config file"
-    required: false
-node_image: ghcr.io/ledu0032/helloworld:main
