@@ -24,7 +24,7 @@ jobs:
     - name: Kind Cluster
       run : |
         cd chart
-        kind create cluster --config /kind-cluster.yaml 
+        kind create cluster --config kind-cluster.yaml 
 
     - name: Install Kind Cluster
       run: |
