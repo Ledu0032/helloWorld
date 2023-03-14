@@ -27,6 +27,6 @@ jobs:
     - name: Install Kind Cluster
       run: |
         kubectl get nodes
-        docker pull ghcr.io/ledu0032/helloworld:main
-        kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing
+        docker pull docker pull ghcr.io/ledu0032/helm-chats/helloworldv2:0.3.0
+        kind load docker-image docker pull ghcr.io/ledu0032/helm-chats/helloworldv2:0.3.0 --name chart-testing
         kubectl apply -f ./chart
