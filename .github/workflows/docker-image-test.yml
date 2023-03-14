@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-#
+
     steps:
     - uses: actions/checkout@v3
     - name: Login to GitHub Container Registry
@@ -22,11 +22,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Kind Cluster
-      uses: helm/kind-action@v1.5.0
+      run : kind create cluster --config kind-cluster.yaml --image ledu32/helloworld
 
     - name: Install Kind Cluster
       run: |
-        kubectl get nodes
         docker pull ghcr.io/ledu0032/helloworld:main
         kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing
-        kubectl apply -f Dockerfile 
+        kubectl apply -f kind-cluster.yaml
