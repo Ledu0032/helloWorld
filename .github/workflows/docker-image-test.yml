@@ -29,5 +29,4 @@ jobs:
         kubectl get nodes
         docker pull ghcr.io/ledu0032/helloworld:main
         kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing
-        kubectl apply -f ghcr.io/ledu0032/helloworld:main
-        docker exec chart-testing-control-plane crictl images
+        kubectl apply -f ./chart
