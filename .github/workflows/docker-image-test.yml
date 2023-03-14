@@ -28,4 +28,6 @@ jobs:
       run: |
         docker pull ghcr.io/ledu0032/helloworld:main
         kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing
+        cd chart
+        cd template
         kubectl apply -f kind-deployment.yaml
