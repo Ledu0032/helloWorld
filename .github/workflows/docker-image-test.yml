@@ -31,4 +31,4 @@ jobs:
         kind create cluster --config kind-cluster.yaml
         docker pull ghcr.io/ledu0032/helloworld:main
         kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing2
-        kubectl apply -f 
+        kubectl apply -f kind-cluster.yaml
