@@ -23,9 +23,7 @@ jobs:
 
     - name: Install Kind Cluster
       run: |
-        cd chart
-        cd templates
-        kind create kind-cluster.yaml
+        kind create kind
         docker pull ghcr.io/ledu0032/helloworld:main
-        kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing2
-        kubectl apply -f kind-deployemnt.yaml
+        kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing
+        kubectl apply -f kind-deployment.yaml
