@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: helloworldv2
-        image: ledu32/helloworld
+        image: ghcr.io/ledu0032/helloworld:main
         livenessProbe:
           httpGet:
             path: /
