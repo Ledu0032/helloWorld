@@ -5,6 +5,7 @@ metadata:
   labels:
     app: kind-deployment
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: kind-deployment
