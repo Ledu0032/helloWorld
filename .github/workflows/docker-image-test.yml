@@ -29,6 +29,6 @@ jobs:
         docker pull ghcr.io/ledu0032/helloworld:main
         kind load docker-image ghcr.io/ledu0032/helloworld:main --name chart-testing
         kubectl apply -f kind-deployment.yaml
-        kubectl get pods
         kubectl wait --for=condition=Ready deployments/kind-deployment --timeout=60s
+        kubectl get pods
         kubectl describe pods
