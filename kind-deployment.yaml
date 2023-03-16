@@ -1,18 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: kind-deployment
   labels:
-    app: deployment
+    app: kind-deployment
 spec:
-  replicas: 2
   selector:
     matchLabels:
-      app: deployment
+      app: kind-deployment
   template:
     metadata:
       labels:
-        app: deployment
+        app: kind-deployment
     spec:
       containers:
       - name: helloworldv2
