@@ -29,4 +29,4 @@ jobs:
         docker build -f Dockerfile -t test-image .
         kind load docker-image test-image --name chart-testing
         kubectl apply -f kind-deployment.yaml
-        kubectl wait --for=condition=Ready deployments/kind-deployment --timeout=60s
+        kubectl wait --for=condition=Ready deployments/kind-deployment --timeout=10s

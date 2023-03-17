@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: helloworldv2
-        image: proba:latest
+        image: test-image
         ports:
         - containerPort: 5000
