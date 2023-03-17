@@ -29,6 +29,7 @@ jobs:
         docker build -f Dockerfile -t ledu32/helloworld .
         kind load docker-image ledu32/helloworld --name chart-testing
         kubectl apply -f kind-deployment.yaml
+        kubectl get pods
         kubectl get deploy
         kubectl describe deploy kind-deployment
-        kubectl wait --for=condition=Ready deployments/kind-deployment --timeout=10s
+        kubectl wait --for=condition=Ready pod/kind* --timeout=10s
