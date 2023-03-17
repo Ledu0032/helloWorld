@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: helloworldv2
-        image: ghcr.io/ledu0032/helloworld:main
+        image: proba:latest
         ports:
         - containerPort: 5000
