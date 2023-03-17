@@ -26,7 +26,9 @@ jobs:
 
     - name: Install Kind Cluster
       run: |
-        docker build -f Dockerfile -t test-image .
-        kind load docker-image test-image --name chart-testing
+        docker build -f Dockerfile -t ledu32/helloworld .
+        kind load docker-image ledu32/helloworld --name chart-testing
         kubectl apply -f kind-deployment.yaml
+        kubectl get deploy
+        kubectl describe deploy kind-deployment
         kubectl wait --for=condition=Ready deployments/kind-deployment --timeout=10s
