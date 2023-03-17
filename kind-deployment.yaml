@@ -17,5 +17,11 @@ spec:
       containers:
       - name: helloworldv2
         image: ledu32/helloworld
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 2
+          periodSeconds: 10
         ports:
         - containerPort: 5000

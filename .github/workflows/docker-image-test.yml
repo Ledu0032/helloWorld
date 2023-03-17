@@ -28,6 +28,7 @@ jobs:
       run: |
         docker build -f Dockerfile -t ledu32/helloworld .
         kind load docker-image ledu32/helloworld --name chart-testing
+        kubectl get pod -l app=kind-deployment -o jsonpath="{.items[0].metadata.name}"
         kubectl apply -f kind-deployment.yaml
         kubectl get pods
         kubectl get deploy
