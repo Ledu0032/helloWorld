@@ -32,4 +32,4 @@ jobs:
         kubectl get pods --show-labels
         kubectl get deploy
         kubectl describe deploy kind-deployment
-        kubectl wait --for=condition=Ready pod/kind-deployment-585797547f-* --timeout=10s
+        kubectl wait --for=condition=Ready --all pods
