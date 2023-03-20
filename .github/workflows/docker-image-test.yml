@@ -34,7 +34,6 @@ jobs:
       uses: karancode/kustomize-github-action@master
       with:
         kustomize_version: '3.0.0'
-        kustomize_build_dir: '.'
 
     - name: Test Kustomization
       run: kustomize build base | apply kubectl apply -f kind-deployment.yaml
