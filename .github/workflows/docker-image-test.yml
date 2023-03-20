@@ -24,9 +24,14 @@ jobs:
     - name: Kind Cluster
       uses: helm/kind-action@v1.5.0
 
-    - name: Install Kind Cluster
-      run: |
-        docker build -f Dockerfile -t ledu32/helloworld .
-        kind load docker-image ledu32/helloworld --name chart-testing
-        kubectl apply -f kind-deployment.yaml
-        kubectl wait --for=condition=Ready pod -l app=kind-deployment 
+    - name: Build Docker image
+      run: docker build -f Dockerfile -t ledu32/helloworld .
+
+    - name: Load image to Kind cluster
+      run: kind load docker-image ledu32/helloworld --name chart-testing
+
+    - name: Apply deployment to Kind clister
+      run: kubectl apply -f kind-deployment.yaml
+
+    - name: Wait for pod to be Ready
+      run: kubectl wait --for=condition=Ready pod -l app=kind-deployment
