@@ -34,7 +34,7 @@ jobs:
     #  uses: karancode/kustomize-github-action@v1.3.2
 
     - name: Test Kustomization
-      run: kustomize build base . | apply kubectl apply -f kind-deployment.yaml
+      run: kustomize build base | apply kubectl apply -f kind-deployment.yaml
 
  #   - name: Apply deployment to Kind clister
   #    run: kubectl apply -f kind-deployment.yaml
