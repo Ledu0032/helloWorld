@@ -42,8 +42,5 @@ jobs:
     - name: Test Kustomization
       run: kustomize build base | kubectl apply -f base/kind-deployment.yaml
 
- #   - name: Apply deployment to Kind clister
-  #    run: kubectl apply -f kind-deployment.yaml
-
     - name: Wait for pod to be Ready
       run: kubectl wait --for=condition=Ready pod -l app=kind-deployment
