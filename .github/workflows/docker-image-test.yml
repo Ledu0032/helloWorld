@@ -30,8 +30,14 @@ jobs:
     - name: Load image to Kind cluster
       run: kind load docker-image ledu32/helloworld --name chart-testing
 
-    - name: Apply deployment to Kind clister
-      run: kubectl apply -f kind-deployment.yaml
+    - name: Kustomize Github Action
+      uses: karancode/kustomize-github-action@v1.3.2
+
+    - name: Test Kustomization
+      run: kustomize build . | k apply kubectl apply -f kind-deployment.yaml
+
+ #   - name: Apply deployment to Kind clister
+  #    run: kubectl apply -f kind-deployment.yaml
 
     - name: Wait for pod to be Ready
       run: kubectl wait --for=condition=Ready pod -l app=kind-deployment
