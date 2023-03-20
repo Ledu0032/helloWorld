@@ -40,7 +40,7 @@ jobs:
         kustomize version
 
     - name: Test Kustomization
-      run: kustomize build base | apply kubectl apply -f kind-deployment.yaml
+      run: kustomize build base | kubectl apply -f kind-deployment.yaml
 
  #   - name: Apply deployment to Kind clister
   #    run: kubectl apply -f kind-deployment.yaml
