@@ -30,8 +30,14 @@ jobs:
     - name: Load image to Kind cluster
       run: kind load docker-image ledu32/helloworld --name chart-testing
 
-    - name: Kustomize Github Action
-      uses: karancode/kustomize-github-action@v1.3.2
+    - name: Setup kustomize
+      shell: bash
+      run: |
+        curl --silent --location --remote-name "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.7/kustomize_v4.5.7_linux_amd64.tar.gz"
+        tar xvzf kustomize_v4.5.7_linux_amd64.tar.gz 
+        sudo mv kustomize /usr/local/bin/kustomize
+        rm -rfv *.tar.gz
+        kustomize version
 
     - name: Test Kustomization
       run: kustomize build base | apply kubectl apply -f kind-deployment.yaml
