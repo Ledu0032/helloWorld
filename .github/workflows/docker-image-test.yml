@@ -30,10 +30,8 @@ jobs:
     - name: Load image to Kind cluster
       run: kind load docker-image ledu32/helloworld --name chart-testing
 
-    - name: 'Kustomize Build'
-      uses: karancode/kustomize-github-action@master
-      with:
-        kustomize_version: '3.0.0'
+    - name: Kustomize Github Action
+      uses: karancode/kustomize-github-action@v1.3.2
 
     - name: Test Kustomization
       run: kustomize build base | apply kubectl apply -f kind-deployment.yaml
