@@ -6,12 +6,8 @@ name: Docker
 # documentation.
 #
 on:
-  push:
-    branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'vx.x.x' ]
-  pull_request:
-    branches: [ "main" ]
+  release:
+    types: [published, edited]
 
 env:
   # Use docker.io for Docker Hub if empty
