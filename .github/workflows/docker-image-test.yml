@@ -2,6 +2,7 @@ name: Docker image tester
 
 on: 
   pull_request:
+    branches: [ "main" ] 
 
 jobs:
   build:
