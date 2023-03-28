@@ -1,12 +1,7 @@
 name: Docker image tester
 
 on: 
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ] 
- # release:
-  #  types: [published, edited]
 
 jobs:
   build:
