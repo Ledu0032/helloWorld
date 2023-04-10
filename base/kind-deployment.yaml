@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: helloworldv2
-        image: ledu32/helloworld
+        image: ledu32/helloworldv2:test1
         readinessProbe:
           httpGet:
             path: /

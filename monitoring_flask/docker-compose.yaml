@@ -1,0 +1,16 @@
+version: "3"  
+services:  
+ prometheus:
+      image: prom/prometheus:latest
+      ports:
+      - 9090:9090
+      volumes:
+      - "./prometheus.yml:/etc/monitoring_flask/prometheus.yml"
+
+ app:
+      container_name: helloworldv3
+      build: .
+      ports:
+      - "5000:5000"
+      volumes:
+      - "./index.py:/index.py"

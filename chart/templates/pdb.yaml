@@ -3,7 +3,7 @@ kind: PodDisruptionBudget
 metadata:
   name: pdb
 spec:
-  minAvailable: {{ .Values.pdb.minAvailable }}
+  minAvailable: 1
   selector:
     matchLabels:
-      app: {{ .Values.app }}
+      app: nginx

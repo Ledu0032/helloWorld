@@ -14,7 +14,7 @@ deployment:
   resources:
     limits:
       cpu: "0.5"
-    requests:
+  requests:
       cpu: "0.25"
 
 service:
@@ -49,7 +49,7 @@ pdb:
 
 nodeSelector: 
   # example to me, that say to me if syntax is good for with functions 
-  region: americas
+  region: minikube
 
 tolerations: {}
 

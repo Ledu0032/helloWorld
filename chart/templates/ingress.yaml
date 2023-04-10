@@ -1,16 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}
+  name: ingress
 spec:
-  rules:
-  - host: {{ .Values.ingress.hosts }}  
+  rules: 
     http:
       paths:
       - path: /nginx
-        pathType: {{ .Values.ingress.pathType }}
+        pathType: Prefix
         backend: 
           service:
-            name: {{ .Values.service.name }}
+            name: service
             port:
-              number: {{ .Values.port }}
+              number: 5000
