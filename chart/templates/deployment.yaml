@@ -13,10 +13,15 @@ spec:
     metadata:
       labels:
         app: nginx
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io.scheme: "http"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "5000"
     spec:
       containers:
-      - name: helloworldv2
-        image: ledu32/helloworldv2:latest
+      - name: helloworldv3
+        image: ledu32/helloworldv2
         livenessProbe:
           httpGet:
             path: /
